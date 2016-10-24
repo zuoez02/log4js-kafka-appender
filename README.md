@@ -4,11 +4,13 @@ Kafka appender for log4js.
 
 ## Install
 
-`npm install --save log4js-Kafka-appender`
+```bash
+npm install --save log4js-Kafka-appender
+```
 
 ## Usage
 
-<pre><code>
+```javascript
 const log4js = require('log4js');
 log4js.loadAppender('log4js-kafka-appender');
 log4js.addAppender(log4js.appenders['log4js-kafka-appender']({
@@ -25,7 +27,7 @@ log4js.addAppender(log4js.appenders['log4js-kafka-appender']({
         return JSON.stringify(data);
     }
 }));
-</pre></code>
+```
 
 ## options
 
