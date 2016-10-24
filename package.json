@@ -1,16 +1,14 @@
 {
   "name": "log4js-kafka-appender",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "registry": {
     "type": "git",
     "url": "https://github.com/zuoez02/log4js-kafka-appender.git"
   },
   "description": "kafka appender for log4js",
   "main": "index.js",
-  "scripts": {
-  },
-  "keywords": [],
-  "author": "Luto",
+  "keywords": ["log4js", "kafka"],
+  "author": "zuoez02",
   "license": "MIT",
   "dependencies": {
     "kafka-node": "^1.0.2",

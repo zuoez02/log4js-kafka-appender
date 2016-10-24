@@ -17,7 +17,8 @@ log4js.addAppender(log4js.appenders['log4js-kafka-appender']({
     host: 'localhost',
     port: 2181,
     topic: 'topic',
-    converter: (loggingEvent) => {
+    level: 'INFO'
+    converter: (loggingEvent) =< {
         const data = {
             data: loggingEvent.data,
             level: loggingEvent.level.levelStr,
@@ -34,7 +35,12 @@ log4js.addAppender(log4js.appenders['log4js-kafka-appender']({
 * host: zookeeper host, default localhost
 * port: zookeeper port, default 2181
 * topic: the topic to send, no default, must config one.
+* level: send the log if level is higher than this level.
 * converter: custom logging event converter for customizing your data, default as above.
+
+## Levels
+
+The same to log4js Levels, such as ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL <  MARK < OFF
 
 --------------------------------------
 

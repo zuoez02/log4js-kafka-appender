@@ -4,6 +4,7 @@
  * Developed by Luto 2016-10-24
  */
 const layouts = require('log4js/lib/layouts');
+const level = require('log4js/lib/levels');
 const KafkaClient = require('./producer');
 const log4js = require('log4js');
 const logger = log4js.getLogger('log4js-kafka-appender');
@@ -43,7 +44,15 @@ function appender(_config, _layout) {
 
         return (loggingEvent) => {
             if (loggingEvent.categoryName !== 'log4js-kafka-appender') {
-                client.send([{ topic: _config.topic, messages: converter(loggingEvent) }]);
+                let lowestLevel;
+                if (_config.level) {
+                    lowestLevel = new level.toLevel(_config.level);
+                } else {
+                    lowestLevel = level.ALL;
+                }
+                if (loggingEvent.level.isGreaterThanOrEqualTo(lowestLevel)) {
+                    client.send([{ topic: _config.topic, messages: converter(loggingEvent) }]);
+                }
             }
         };
     }
