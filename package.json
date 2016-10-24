@@ -1,0 +1,15 @@
+{
+  "name": "log4js-kafka-appender",
+  "version": "1.1.0",
+  "description": "kafka appender for log4js",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "Luto",
+  "license": "MIT",
+  "dependencies": {
+    "kafka-node": "^1.0.2",
+    "log4js": "^0.6.38"
+  }
+}
