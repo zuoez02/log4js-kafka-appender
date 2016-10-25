@@ -18,16 +18,16 @@ class Client {
 
         this.client = new kafka.Client(`${config.host}:${config.port}`);
 
-        this.client.on('error', () => {
-            this.client.close();
-        })
-
         this.producer = new HighLevelProducer(this.client);
         this.ready = false;
         this.topics = config.topics;
         this.producer.on('ready', () => {
             logger.info('Kafka client ready');
             this.createTopics(config.topics);
+        });
+
+        this.producer.on('error', (err) => {
+            logger.error(`Kafka client error, ${err}`);
         });
 
         process.on('exit', () => {

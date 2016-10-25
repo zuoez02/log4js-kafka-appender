@@ -1,6 +1,6 @@
 {
   "name": "log4js-kafka-appender",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "registry": {
     "type": "git",
     "url": "https://github.com/zuoez02/log4js-kafka-appender.git"
