@@ -12,11 +12,14 @@ class Client {
         const HighLevelProducer = kafka.HighLevelProducer;
 
         this.config = config;
+        config.connectionString = config.connectionString || '';
         config.host = config.host || 'localhost';
         config.port = config.port || '2181';
         config.topics = [config.topic];
 
-        this.client = new kafka.Client(`${config.host}:${config.port}`);
+        const connectionString = config.connectionString ? config.connectionString : `${config.host}:${config.port}`;
+
+        this.client = new kafka.Client(connectionString);
 
         this.producer = new HighLevelProducer(this.client);
         this.ready = false;
@@ -64,3 +67,4 @@ class Client {
 }
 
 module.exports = Client;
+
