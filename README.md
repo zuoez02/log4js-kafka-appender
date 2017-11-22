@@ -18,7 +18,7 @@ log4js.addAppender(log4js.appenders['log4js-kafka-appender']({
     port: 2181,
     topic: 'topic',
     level: 'INFO'
-    converter: (loggingEvent) =< {
+    converter: (loggingEvent) => {
         const data = {
             data: loggingEvent.data,
             level: loggingEvent.level.levelStr,
